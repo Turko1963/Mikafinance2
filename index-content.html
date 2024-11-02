@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רמת הידע שלי בשוק ההון</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="start-screen">
+            <h1>רמת הידע שלי בשוק ההון</h1>
+            <p style="margin-bottom: 2rem;">בחן את עצמך ב-10 שאלות על שוק ההון</p>
+            <p style="margin-bottom: 1rem;">יש לך 30 שניות לענות על כל שאלה</p>
+            <button onclick="startQuiz()">התחל</button>
+        </div>
+
+        <div class="quiz-container">
+            <div class="quiz-info">
+                <span class="question-number"></span>
+                <span class="timer"></span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="question"></div>
+            <div class="options"></div>
+            <button onclick="nextQuestion()">המשך</button>
+        </div>
+
+        <div class="result-screen">
+            <h1>התוצאה שלך</h1>
+            <div class="emoji"></div>
+            <div class="score"></div>
+            <div class="message"></div>
+            <button onclick="restartQuiz()">נסה שוב</button>
+            <button class="next-level" onclick="startNextLevel()">עבור לשלב הבא</button>
+        </div>
+    </div>
+    
+    <script type="module" src="js/quiz.js"></script>
+</body>
+</html>
