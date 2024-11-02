@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <!-- [Previous head content remains the same until style tag] -->
+    <style>
+        /* [Previous styles remain the same] */
+
+        .quiz-section {
+            margin: 40px auto;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .quiz-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+
+        .quiz-question {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .quiz-option.correct {
+            background: rgba(0, 255, 136, 0.2);
+            border-color: #00ff88;
+        }
+
+        .quiz-option.wrong {
+            background: rgba(255, 0, 0, 0.2);
+            border-color: #ff0000;
+        }
+
+        .quiz-feedback {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .quiz-feedback.correct {
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            display: block;
+        }
+
+        .quiz-feedback.wrong {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff5555;
+            display: block;
+        }
+
+        /* [Rest of the previous styles remain the same] */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>מיקה פיננסים</h1>
+            <p class="subtitle">הבוט החכם שיעזור לך להבין את שוק ההון בקלות</p>
+            
+            <div class="chat-preview">
+                <!-- [Chat preview content remains the same] -->
+            </div>
+
+            <a href="https://wa.me/972549669657" class="cta-button">התחל לשוחח איתי</a>
+
+            <div class="quiz-section">
+                <h2 class="quiz-title">בואו נבדוק כמה אתם מבינים בשוק ההון 🤓</h2>
+                <div class="quiz-question"></div>
+                <div class="quiz-options"></div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <div class="features">
+                <!-- [Features content remains the same] -->
+            </div>
+
+            <a href="https://paypal.me/tradingleader?country.x=IL&locale.x=en_US" class="cta-button donate-button">
+                <i class="fas fa-heart" style="margin-left: 8px;"></i>
+                תרומה לפרויקט
+            </a>
+        </section>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "מהו דיבידנד?",
+                options: [
+                    "חלק מרווחי החברה המחולק למשקיעים",
+                    "סוג של אגרת חוב",
+                    "מס המוטל על רווחי הון",
+                    "עמלת קנייה של מניות"
+                ],
+                correct: 0,
+                feedback: "נכון מאוד! דיבידנד הוא חלק מרווחי החברה שמחולק לבעלי המניות."
+            },
+            {
+                question: "מהו מדד ת״א 35?",
+                options: [
+                    "מדד המכיל את 35 החברות הצעירות ביותר בבורסה",
+                    "מדד המכיל את 35 החברות הגדולות בבורסה הישראלית",
+                    "מדד המודד את רמת האינפלציה",
+                    "מדד המכיל 35 חברות טכנולוגיה"
+                ],
+                correct: 1,
+                feedback: "נכון! מדד ת״א 35 כולל את 35 החברות בעלות שווי השוק הגבוה ביותר בבורסה בתל אביב."
+            },
+            {
+                question: "מהי קרן נאמנות?",
+                options: [
+                    "הלוואה בנקאית",
+                    "חיסכון פנסיוני",
+                    "השקעה משותפת המנוהלת על ידי מנהל מקצועי",
+                    "ביטוח חיים"
+                ],
+                correct: 2,
+                feedback: "מצוין! קרן נאמנות היא אכן כלי השקעה המאפשר למשקיעים רבים לאגד את כספם תחת ניהול מקצועי."
+            },
+            {
+                question: "מהי שורט (Short)?",
+                options: [
+                    "קניית מניה לטווח קצר",
+                    "מכירת מניה שאין ברשותך מתוך ציפייה לירידת מחיר",
+                    "השקעה בחברות קטנות",
+                    "הלוואה לטווח קצר"
+                ],
+                correct: 1,
+                feedback: "נכון מאוד! שורט היא פעולת מכירה של נייר ערך שאין ברשותך, מתוך ציפייה שמחירו ירד ותוכל לקנותו בזול יותר."
+            },
+            {
+                question: "מהו P/E?",
+                options: [
+                    "יחס בין מחיר המניה לרווח למניה",
+                    "אחוז הצמיחה של החברה",
+                    "סכום הדיבידנד השנתי",
+                    "מדד לתנודתיות המניה"
+                ],
+                correct: 0,
+                feedback: "נכון! P/E (Price to Earnings) הוא יחס המחיר לרווח, המשמש להערכת שווי של מניה."
+            }
+        ];
+
+        let currentQuestion = null;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function displayQuestion() {
+            // Reset previous state
+            document.querySelector('.quiz-options').innerHTML = '';
+            document.querySelector('.quiz-feedback').className = 'quiz-feedback';
+            document.querySelector('.quiz-feedback').textContent = '';
+
+            // Select random question
+            currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+            // Display question
+            document.querySelector('.quiz-question').textContent = currentQuestion.question;
+
+            // Create and display options
+            const optionsContainer = document.querySelector('.quiz-options');
+            shuffleArray([...currentQuestion.options]).forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'quiz-option';
+                optionElement.textContent = option;
+                optionElement.dataset.index = currentQuestion.options.indexOf(option);
+                optionElement.onclick = checkAnswer;
+                optionsContainer.appendChild(optionElement);
+            });
+        }
+
+        function checkAnswer(event) {
+            const selectedOption = event.target;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            const feedbackElement = document.querySelector('.quiz-feedback');
+            
+            // Remove previous option classes
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('correct', 'wrong');
+                option.onclick = null; // Disable further clicks
+            });
+
+            if (selectedIndex === currentQuestion.correct) {
+                selectedOption.classList.add('correct');
+                feedbackElement.textContent = currentQuestion.feedback;
+                feedbackElement.className = 'quiz-feedback correct';
+            } else {
+                selectedOption.classList.add('wrong');
+                document.querySelectorAll('.quiz-option')[currentQuestion.correct].classList.add('correct');
+                feedbackElement.textContent = 'לא נכון, נסה שוב!';
+                feedbackElement.className = 'quiz-feedback wrong';
+            }
+
+            // Set timeout to show next question
+            setTimeout(() => {
+                displayQuestion();
+            }, 3000);
+        }
+
+        // Initialize quiz
+        displayQuestion();
+    </script>
+</body>
+</html>
